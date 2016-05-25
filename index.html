@@ -52,6 +52,7 @@
 
   <div class="container">
     <div class="row">
+      <!-- NEW POST FORM -->
       <div class="col-md-12" ng-controller="newPostForm">
         <form action="#" id="new-post-form" name="newPostForm" ng-submit="submitPost()">
           <!-- NEW POST TITLE -->
@@ -134,7 +135,7 @@
             <div class="col-md-9">
               <div class="row">
                 <div class="col-md-12 post-title-votes-section">
-                  <h3>{{post.title}} | <span class="glyphicon glyphicon-arrow-up"></span> <span class="glyphicon glyphicon-arrow-down"></span> 0</h3>
+                  <h3>{{post.title}} | <span class="glyphicon glyphicon-arrow-up" ng-click="vote(1, post.title)"></span> <span class="glyphicon glyphicon-arrow-down" ng-click="vote(-1, post.title)"></span> <span>{{post.votes}}</span></h3>
                 </div>
               </div>
               <div class="row">
