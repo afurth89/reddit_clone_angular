@@ -53,24 +53,70 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12" ng-controller="newPostForm">
-        <form action="#" id="new-post-form" ng-submit="submitPost()">
+        <form action="#" id="new-post-form" name="newPostForm" ng-submit="submitPost()">
+          <!-- NEW POST TITLE -->
           <div class="form-group">
             <label for="new-post-title">Title</label>
-            <input ng-model="formData.title" class="form-control" type="text" id="new-post-title" placeholder="Title" required>
+            <input name="title" ng-model="formData.title" class="form-control" type="text" id="new-post-title" placeholder="Title" ng-minlength=3 ng-maxlength=30 required autocomplete="off" ng-class="{errorInput: newPostForm.title.$dirty && newPostForm.title.$invalid}">
           </div>
+          <div class="error" ng-show="newPostForm.title.$dirty && newPostForm.title.$invalid">
+            <small class="error" ng-show="newPostForm.title.$error.required">
+              A title is required
+            </small>
+            <small class="error" ng-show="newPostForm.title.$error.minlength">
+              Your title must be at least 3 characters
+            </small>
+            <small class="error" ng-show="newPostForm.title.$error.maxlength">
+              Your title cannot be longer than 30 characters
+            </small>
+          </div>
+          <!-- NEW POST AUTHOR -->
           <div class="form-group">
             <label for="new-post-author">Author</label>
-            <input ng-model="formData.author" class="form-control" type="text" id="new-post-author" placeholder="Author" required>
+            <input name="author" ng-model="formData.author" class="form-control" type="text" id="new-post-author" placeholder="Author" ng-minlength=3 ng-maxlength=30 required autocomplete="off" ng-class="{errorInput: newPostForm.author.$dirty && newPostForm.author.$invalid}">
           </div>
+          <div class="error" ng-show="newPostForm.author.$dirty && newPostForm.author.$invalid">
+            <small class="error" ng-show="newPostForm.author.$error.required">
+              An author is required
+            </small>
+            <small class="error" ng-show="newPostForm.author.$error.minlength">
+              Your author must be at least 3 characters
+            </small>
+            <small class="error" ng-show="newPostForm.author.$error.maxlength">
+              Your author cannot be longer than 30 characters
+            </small>
+          </div>
+          <!-- NEW POST URL -->
           <div class="form-group">
             <label for="new-post-imageURL">Image URL</label>
-            <input ng-model="formData.imgURL" class="form-control" type="text" id="new-post-imageURL" placeholder="Image URL" required>
+            <input name="imgURL" ng-model="formData.imgURL" class="form-control" type="text" id="new-post-imageURL" placeholder="Image URL" ng-minlength=5 required autocomplete="off" ng-class="{errorInput: newPostForm.imgURL.$dirty && newPostForm.imgURL.$invalid}">
           </div>
+          <div class="error" ng-show="newPostForm.imgURL.$dirty && newPostForm.imgURL.$invalid">
+            <small class="error" ng-show="newPostForm.imgURL.$error.required">
+              A URL is required
+            </small>
+            <small class="error" ng-show="newPostForm.imgURL.$error.minlength">
+              Your URL must be at least 5 characters
+            </small>
+          </div>
+          <!-- NEW POST DESCRIPTION -->
           <div class="form-group">
             <label for="new-post-description">Description</label>
-            <input ng-model="formData.description" class="form-control" type="text" id="new-post-description" placeholder="Description" required>
+            <input name="description" ng-model="formData.description" class="form-control" type="text" id="new-post-description" placeholder="Description" ng-minlength=3 ng-maxlength=500 required autocomplete="off" ng-class="{errorInput: newPostForm.description.$dirty && newPostForm.description.$invalid}">
           </div>
-           <button type="submit" class="btn btn-default">Submit Post</button>
+          <div class="error" ng-show="newPostForm.description.$dirty && newPostForm.description.$invalid">
+            <small class="error" ng-show="newPostForm.description.$error.required">
+              A description is required
+            </small>
+            <small class="error" ng-show="newPostForm.description.$error.minlength">
+              Your description must be at least 3 characters
+            </small>
+            <small class="error" ng-show="newPostForm.description.$error.maxlength">
+              Your description cannot be longer than 500 characters
+            </small>
+          <!-- NEW POST SUBMIT -->
+          </div>
+           <button type="submit" class="btn btn-default" ng-disabled="newPostForm.$invalid">Submit Post</button>
         </form>
 
       </div>

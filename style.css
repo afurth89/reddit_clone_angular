@@ -6,3 +6,12 @@
   position: relative;
   bottom: 0px;
 }
+
+.error {
+  color: red;
+}
+
+.errorInput {
+  border: 1px solid red;
+}
+

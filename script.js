@@ -12,9 +12,10 @@ app.controller('newPostForm', function($rootScope, $scope) {
   $scope.submitPost = function() {
     $scope.view.postLog.push($scope.formData);
     $scope.formData = {};
+    $scope.newPostForm.$setPristine();
   }
 })
 
 app.controller('postsDisplay', function($rootScope, $scope) {
-  
+
 });
