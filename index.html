@@ -123,7 +123,7 @@
       </div>
     </div>
     <br>
-    <div ng-controller="postsDisplay" ng-repeat="post in view.postLog">    
+    <div ng-controller="postsDisplay" ng-repeat="post in view.postLog | orderBy:'-votes'">    
       <div class="row">
         <div class="col-md-12 well well-lg">
           <div class="row">
