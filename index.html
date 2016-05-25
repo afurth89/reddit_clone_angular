@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="redditClone">
 <head>
   <meta charset="UTF-8">
   <title>Reddit Redux (Powered by Angular, created by Andrew Furth)</title>
-  <link rel="stylesheet" href="style.css">
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <!-- Latest compiled and minified CSS -->
@@ -12,17 +11,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body ng-controller="MainController">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">Reddit Redux</a>
       </div>
@@ -53,6 +49,69 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" ng-controller="newPostForm">
+        <form action="#" id="new-post-form" ng-submit="submitPost()">
+          <div class="form-group">
+            <label for="new-post-title">Title</label>
+            <input ng-model="formData.title" class="form-control" type="text" id="new-post-title" placeholder="Title" required>
+          </div>
+          <div class="form-group">
+            <label for="new-post-author">Author</label>
+            <input ng-model="formData.author" class="form-control" type="text" id="new-post-author" placeholder="Author" required>
+          </div>
+          <div class="form-group">
+            <label for="new-post-imageURL">Image URL</label>
+            <input ng-model="formData.imgURL" class="form-control" type="text" id="new-post-imageURL" placeholder="Image URL" required>
+          </div>
+          <div class="form-group">
+            <label for="new-post-description">Description</label>
+            <input ng-model="formData.description" class="form-control" type="text" id="new-post-description" placeholder="Description" required>
+          </div>
+           <button type="submit" class="btn btn-default">Submit Post</button>
+        </form>
+
+      </div>
+    </div>
+    <br>
+    <div ng-controller="postsDisplay" ng-repeat="post in view.postLog">    
+      <div class="row">
+        <div class="col-md-12 well well-lg">
+          <div class="row">
+            <div class="col-md-3 post-image-section">
+              <div class="thumbnail">
+                <img src="{{post.imgURL}}" alt="">
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="row">
+                <div class="col-md-12 post-title-votes-section">
+                  <h3>{{post.title}} | <span class="glyphicon glyphicon-arrow-up"></span> <span class="glyphicon glyphicon-arrow-down"></span> 0</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 post-author-section">by {{post.author}}</div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 post-content-section">{{post.description}}</div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 post-date-comments-section">
+                  <h5>
+                    <span class="glyphicon glyphicon-calendar"></span> Formatted Date  |  
+                    <span class="glyphicon glyphicon-comment"></span> 0 comment  |  
+                    <span class="glyphicon glyphicon-pencil"></span> Add Comment
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
