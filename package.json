@@ -1,0 +1,19 @@
+{
+  "name": "reddit_clone_angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afurth89/reddit_clone_angular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afurth89/reddit_clone_angular/issues"
+  },
+  "homepage": "https://github.com/afurth89/reddit_clone_angular#readme"
+}
