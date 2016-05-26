@@ -78,10 +78,14 @@ app.controller('postsDisplay', function($rootScope, $scope) {
 app.controller('newCommentForm', function($rootScope, $scope) {
   $scope.newComment = {};
   $scope.displayCommentForm = false;
+  $scope.displayComments = false;
   $scope.toggleCommentForm = function() {
     $scope.displayCommentForm = $scope.displayCommentForm === true ? false : true;
   }
   $scope.submitComment = function(post) {
     post.comments.push($scope.newComment);
+  }
+  $scope.toggleCommentsDisplay = function() {
+    $scope.displayComments = $scope.displayComments === true ? false : true;
   }
 })
