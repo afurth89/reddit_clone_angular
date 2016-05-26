@@ -150,7 +150,7 @@
                 <div class="col-md-12 post-date-comments-section">
                   <h5>
                     <span class="glyphicon glyphicon-calendar"></span> <time am-time-ago="post.datePosted"></time>   |  
-                    <a ng-click="toggleCommentsDisplay()"><span class="glyphicon glyphicon-comment"></span> 0 comment</a>  |  
+                    <a ng-click="toggleCommentsDisplay()"><span class="glyphicon glyphicon-comment"></span> {{post.comments.length}} comment</a>  |  
                     <a ng-click="toggleCommentForm()"><span class="glyphicon glyphicon-pencil" ></span> Add Comment</a>
                   </h5>
                   <form name="newCommentForm" ng-show="displayCommentForm" ng-submit="submitComment(post)">
