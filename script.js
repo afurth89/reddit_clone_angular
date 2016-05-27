@@ -43,11 +43,27 @@ app.controller('navBar', function($rootScope, $scope) {
   }
   $scope.searchQuery = {}
   $scope.search = function() {
-    // Iterate through the postLog
+    // Convert string to lowercase, w/ non-letters removed
+    str = $scope.searchQuery.text.toLowerCase().replace(/\W/g, "");
+    // Iterate through postLog array
+    for (var i=0; i < $scope.view.postLog.length; i++) {
+        // Assume no match to start
+        var match = false;
+        // Iterate through each of the values in the object   
+        for (var val in $scope.view.postLog[i]) {
+            // Ensure only string values are being searched
+            if (typeof $scope.view.postLog[i][val] === "string") {
+                // Convert string to lowercase, w/ non-letters removed
+                var textToSearch = $scope.view.postLog[i][val].toLowerCase().replace(/\W/g, "");
+                // If search string is in post's content, 
+                  // set match to true
+                if (textToSearch.includes(str)) match = true;   
+            }
 
-    // Check if the text from the searchQuery is included
-      // in any of the values of the posts
-    // If not, set it's display property to false
+        }
+        // If match is true, display the post
+        $scope.view.postLog[i].display = (!!match) ? true : false;
+    }
   }
 })
 

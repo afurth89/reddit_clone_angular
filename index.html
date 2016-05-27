@@ -33,7 +33,7 @@
           <!-- Search -->
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search" ng-model="searchQuery.text">
+              <input type="text" class="form-control" placeholder="Search" ng-model="searchQuery.text" ng-keyup="search()">
             </div>
           </form>
           <li class="dropdown">
