@@ -78,6 +78,9 @@ app.controller('newCommentForm', function($rootScope, $scope) {
   }
   $scope.submitComment = function(post) {
     post.comments.push($scope.newComment);
+    $scope.newCommentForm.$setPristine();
+    $scope.displayCommentForm = false;
+    $scope.displayComments = true;
   }
   $scope.toggleCommentsDisplay = function() {
     $scope.displayComments = $scope.displayComments === true ? false : true;
