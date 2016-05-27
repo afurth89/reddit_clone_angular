@@ -15,9 +15,6 @@ app.controller('MainController', function($scope) {
           {
             author: "John",
             text: "I agree!"
-          }, {
-            author: "Barbara",
-            text: "I dunno, he never had much to say"
           }
         ]
       }, {
@@ -31,9 +28,6 @@ app.controller('MainController', function($scope) {
           {
             author: "Tammy",
             text: "He's pretty cute though..."
-          }, {
-            author: "Samantha",
-            text: "Ewwwwwwwwwww"
           }
         ]
       }
