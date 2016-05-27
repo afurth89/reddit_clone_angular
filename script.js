@@ -16,7 +16,8 @@ app.controller('MainController', function($scope) {
             author: "John",
             text: "I agree!"
           }
-        ]
+        ],
+        display: true
       }, {
         title:"Ramsey is the worst",
         author:"George R.R. Martin",
@@ -29,7 +30,8 @@ app.controller('MainController', function($scope) {
             author: "Tammy",
             text: "He's pretty cute though..."
           }
-        ]
+        ],
+        display: true
       }
     ]
   }
@@ -39,6 +41,14 @@ app.controller('navBar', function($rootScope, $scope) {
   $scope.togglePostForm = function() {
     $scope.view.displayPostForm = $scope.view.displayPostForm === true ? false : true;
   }
+  $scope.searchQuery = {}
+  $scope.search = function() {
+    // Iterate through the postLog
+
+    // Check if the text from the searchQuery is included
+      // in any of the values of the posts
+    // If not, set it's display property to false
+  }
 })
 
 app.controller('newPostForm', function($rootScope, $scope) {
@@ -47,6 +57,7 @@ app.controller('newPostForm', function($rootScope, $scope) {
     $scope.formData.votes = 0;
     $scope.formData.datePosted = Date.now();
     $scope.formData.comments = [];
+    $scope.formData.display = true;
     $scope.view.postLog.push($scope.formData);
     $scope.formData = {};
     $scope.newPostForm.$setPristine();

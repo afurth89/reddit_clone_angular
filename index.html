@@ -33,7 +33,7 @@
           <!-- Search -->
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+              <input type="text" class="form-control" placeholder="Search" ng-model="searchQuery.text">
             </div>
           </form>
           <li class="dropdown">
@@ -126,7 +126,7 @@
     </div>
     <br>
     <div ng-controller="postsDisplay" ng-repeat="post in view.postLog | orderBy:'-votes'">    
-      <div class="row">
+      <div class="row" ng-if="post.display">
         <div class="col-md-12 well well-lg">
           <div class="row">
             <div class="col-md-3 post-image-section">
