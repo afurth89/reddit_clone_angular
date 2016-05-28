@@ -37,7 +37,7 @@
             </div>
           </form>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort by Votes <span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort by Votes <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Votes</a></li>
               <li><a href="#">Date</a></li>
@@ -125,7 +125,7 @@
       </div>
     </div>
     <br>
-    <div ng-controller="postsDisplay" ng-repeat="post in view.postLog | orderBy:'-votes'">    
+    <div ng-controller="postsDisplay" ng-repeat="post in view.postLog | orderBy:'datePosted':true">    
       <div class="row" ng-if="post.display">
         <div class="col-md-12 well well-lg">
           <div class="row">

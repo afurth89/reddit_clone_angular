@@ -23,7 +23,7 @@ app.controller('MainController', function($scope) {
         author:"George R.R. Martin",
         imgURL:"https://patricksponaugle.files.wordpress.com/2015/10/unarmoredramsay.jpg",
         description:"Seriously, screw Ramsey. He's gonna get what's coming to him. Seriously, screw Ramsey. He's gonna get what's coming to him. Seriously, screw Ramsey. He's gonna get what's coming to him.",
-        votes:0,
+        votes:1,
         datePosted:Date.now(),
         comments: [
           {
@@ -65,6 +65,7 @@ app.controller('navBar', function($rootScope, $scope) {
         $scope.view.postLog[i].display = (!!match) ? true : false;
     }
   }
+  $scope.view.predicate = "datePosted"
 })
 
 app.controller('newPostForm', function($rootScope, $scope) {
@@ -77,6 +78,7 @@ app.controller('newPostForm', function($rootScope, $scope) {
     $scope.view.postLog.push($scope.formData);
     $scope.formData = {};
     $scope.newPostForm.$setPristine();
+    $scope.view.displayPostForm = false;
   }
 })
 
