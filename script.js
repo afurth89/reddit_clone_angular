@@ -3,6 +3,9 @@ var app = angular.module("redditClone", ['angularMoment']);
 app.controller('MainController', function($scope) {
   $scope.view = {
     displayPostForm:false,
+    predicate: '-votes',
+    predicateDisplay: "Votes",
+    reverseOrder: false,
     postLog: [
       {
         title:"Hodor is the greatest",
@@ -65,7 +68,13 @@ app.controller('navBar', function($rootScope, $scope) {
         $scope.view.postLog[i].display = (!!match) ? true : false;
     }
   }
-  $scope.view.predicate = "datePosted"
+  $scope.sortBy = function(predicate, display) {
+    $scope.view.predicate = predicate;
+    $scope.view.predicateDisplay = display;
+  }
+  $scope.orderToggle = function() {
+    $scope.view.reverseOrder = $scope.view.reverseOrder ? false : true;
+  }
 })
 
 app.controller('newPostForm', function($rootScope, $scope) {

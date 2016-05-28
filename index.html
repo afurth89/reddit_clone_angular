@@ -37,12 +37,17 @@
             </div>
           </form>
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort by Votes <span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort by {{view.predicateDisplay}} <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Votes</a></li>
-              <li><a href="#">Date</a></li>
-              <li><a href="#">Title</a></li>
+              <li><a ng-click="sortBy('-votes', 'Votes')">Votes</a></li>
+              <li><a ng-click="sortBy('datePosted', 'Date Posted')">Date Posted</a></li>
+              <li><a ng-click="sortBy('title', 'Title')">Title</a></li>
             </ul>
+          </li>
+          <li><a ng-click="orderToggle()">
+            <span class="glyphicon glyphicon-arrow-up" ng-show="view.reverseOrder"></span>
+            <span class="glyphicon glyphicon-arrow-down" ng-hide="view.reverseOrder"></span>
+            </a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -125,7 +130,7 @@
       </div>
     </div>
     <br>
-    <div ng-controller="postsDisplay" ng-repeat="post in view.postLog | orderBy:'datePosted':true">    
+    <div ng-controller="postsDisplay" ng-repeat="post in view.postLog | orderBy:view.predicate:view.reverseOrder">    
       <div class="row" ng-if="post.display">
         <div class="col-md-12 well well-lg">
           <div class="row">
