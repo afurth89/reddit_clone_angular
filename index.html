@@ -11,7 +11,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -45,8 +46,8 @@
             </ul>
           </li>
           <li><a ng-click="orderToggle()">
-            <span class="glyphicon glyphicon-arrow-up" ng-show="view.reverseOrder"></span>
-            <span class="glyphicon glyphicon-arrow-down" ng-hide="view.reverseOrder"></span>
+            <span class="glyphicon glyphicon-arrow-up fade" ng-class="{'visible': view.reverseOrder, 'invisible': !view.reverseOrder}"></span>
+            <span class="glyphicon glyphicon-arrow-down fade" ng-class="{'invisible': view.reverseOrder, 'visible': !view.reverseOrder}"></span>
             </a>
           </li>
         </ul>
@@ -131,7 +132,7 @@
     </div>
     <br>
     <div ng-controller="postsDisplay" ng-repeat="post in view.postLog | orderBy:view.predicate:view.reverseOrder">    
-      <div class="row" ng-if="post.display">
+      <div class="row fade"  ng-class="{'visible': post.display, 'invisible': !post.display}">
         <div class="col-md-12 well well-lg">
           <div class="row">
             <div class="col-md-3 post-image-section">
@@ -190,6 +191,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
   <!-- load Angular -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+  <!-- Angular animation -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
   <!-- load angular-moment -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.10.3/angular-moment.min.js"></script>
   <!-- Load custom JS -->

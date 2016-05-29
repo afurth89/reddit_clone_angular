@@ -1,4 +1,4 @@
-var app = angular.module("redditClone", ['angularMoment']);
+var app = angular.module("redditClone", ['angularMoment', 'ngAnimate']);
 
 app.controller('MainController', function($scope) {
   $scope.view = {
